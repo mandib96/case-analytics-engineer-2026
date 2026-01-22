@@ -1,0 +1,6 @@
+# Ignorar chaves de segurança
+*.json
+
+# Ignorar arquivos de sistema
+.DS_Store
+Thumbs.db
