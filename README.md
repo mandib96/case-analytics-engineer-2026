@@ -1,6 +1,6 @@
-Case Técnico – Pipeline de Dados de Vendas
+# Case Técnico – Pipeline de Dados de Vendas
 
-Contexto
+### Contexto
 
 Este repositório contém a implementação de um pipeline de dados analítico, desenvolvido como parte de um case técnico para a vaga de Analytics Engineer Sênior.
 
@@ -24,7 +24,7 @@ Os dados utilizados são fictícios, contendo informações de vendas entre os a
 
 ---
 
-Arquitetura Geral
+### Arquitetura Geral
 
 A solução foi estruturada utilizando o modelo medalhão, com separação clara de responsabilidades entre as camadas.
 
@@ -39,6 +39,8 @@ Google Cloud Storage
  BigQuery - Analytics
         ↓
      Dashboard
+
+
 
 Essa abordagem permite:
 
@@ -55,7 +57,7 @@ possibilidade de evolução futura do pipeline
 ---
 
 
-Notebooks
+#### Notebooks
 
 create_raw_table.ipynb
 
@@ -65,7 +67,7 @@ create_trusted_table.ipynb
 
 Responsável pelo tratamento dos dados, definição da granularidade analítica, padronização de tipos e consolidação de registros para controle de duplicidade, resultando na camada Trusted.
 
-SQL
+#### SQL
 
 analytics_tables.sql
 
@@ -74,11 +76,11 @@ Contém as queries responsáveis pela criação das tabelas analíticas finais, 
 
 ---
 
-Processo de Ingestão
+### Processo de Ingestão
 
 O processo de ingestão foi dividido em duas etapas principais:
 
-1. Ingestão Raw (Python)
+#### 1. Ingestão Raw (Python)
 
 leitura dos arquivos CSV armazenados no Google Cloud Storage
 
@@ -87,7 +89,7 @@ conversão dos dados em DataFrames
 carga dos dados no BigQuery preservando o formato original da fonte
 
 
-2. Tratamento e Modelagem (SQL)
+#### 2. Tratamento e Modelagem (SQL)
 
 padronização de tipos de dados
 
@@ -103,7 +105,7 @@ Essa separação garante clareza, organização e facilidade de manutenção do 
 
 ---
 
-Tabelas Analíticas
+### Tabelas Analíticas
 
 Foram construídas quatro tabelas analíticas, conforme solicitado no case:
 
@@ -121,7 +123,7 @@ Essas tabelas foram desenhadas como marts de consumo, prontas para uso em dashbo
 
 ---
 
-Orquestração
+### Orquestração
 
 O fluxo de atualização do pipeline foi modelado de forma conceitual utilizando Airflow, representando as seguintes etapas:
 
@@ -140,7 +142,7 @@ Para o escopo do case, a orquestração não foi executada em ambiente produtivo
 
 ---
 
-Versionamento
+### Versionamento
 
 Todo o código do projeto foi versionado utilizando GitHub, permitindo:
 
@@ -156,7 +158,7 @@ Os commits foram realizados de forma incremental ao longo da construção do cas
 
 ---
 
-Visualização
+### Visualização
 
 As tabelas analíticas serviram como base para a construção de um dashboard com visões consolidadas de vendas por marca, linha e evolução temporal.
 
@@ -165,7 +167,7 @@ O objetivo do dashboard foi demonstrar o potencial analítico da solução, cons
 
 ---
 
-Possíveis Evoluções
+### Possíveis Evoluções
 
 A solução foi desenhada de forma simples, porém escalável. Algumas evoluções naturais incluem:
 
@@ -183,7 +185,7 @@ criação de camada semântica para consumo analítico
 
 ---
 
-Observações
+### Observações
 
 Este projeto possui caráter demonstrativo, com foco na avaliação do raciocínio técnico, organização do pipeline e clareza das decisões arquiteturais.
 
